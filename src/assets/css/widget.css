@@ -1,0 +1,183 @@
+/*控件样式*/
+/*1.输入框,300*30*/
+input[type=text],input[type=password],input[type=date],input[type=tel],input[type=number]{
+	width: 18vw;
+	height: 3.3vh;
+	line-height: 3.3vh;
+	border: 1px solid #CCC;
+	border-radius: 5px ;
+	padding-left: 1.4vw;
+	font-size: 0.97vw;
+	outline: none;
+	color: #4A4A4A;
+}
+/***************************2.range*********************/
+/*清除原有样式*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 16vw;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+/*设置滑动条的样式*/
+input[type=range]::-webkit-slider-runnable-track {
+   height: 0.3vh;
+   background: #509EFE;
+}
+input[type=range]::-moz-range-track {
+   height: 0.3vh;
+   background: #509EFE;
+}
+/*去除获取焦点时的边框*/ 
+input[type=range]:focus {
+    outline: none;
+}
+/*修改滑块样式*/
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.7vw;
+    width: 1.4vh;
+    background: #509EFE;
+    margin-top: -5px; 
+} 
+input[type=range]::-moz-range-thumb  {
+    -webkit-appearance: none;
+    height: 0.7vw;
+    width: 1.4vh;
+    background: #509EFE;
+    margin-top: -5px; 
+}
+/*IE下*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 16vw;
+    /*height: 10px;*/
+    /*border-radius: 10px;*/
+   background: #509EFE;
+}
+
+input[type=range]::-ms-track {
+    height: 8px;
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;*/
+    border-color: transparent; /*去除原有边框*/
+    color: transparent; /*去除轨道内的竖线*/
+    background: #E6EFFB;
+}
+
+input[type=range]::-ms-thumb {
+    /*border: solid 0.125em rgba(205, 224, 230, 0.5);*/
+    height: 8px;
+    width: 35px;
+    /*border-radius: 50%;*/
+    background: #61A5FF;
+    /*margin-top: -5px;*/
+    /*box-shadow: 0 .125em .125em #3b4547;*/
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    /*background: linear-gradient(to right, #059CFA, white 100%, white);*/
+    background: #E6EFFB;
+    border: none;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #E6EFFB;
+    border: none;
+}
+
+/*******************************3.下拉框*****************/
+select::-ms-expand { display: none; }
+select{
+	width: 19.4vw;
+	height: 3.7vh;
+	line-height: 3.7vh;
+	font-size: 0.97vw;
+	color: #4A4A4A;
+	border: 1px solid #CCC;
+	border-radius: 5px ;
+	padding-left: 1.4vw;
+	outline: none;
+	/*隐藏select的下拉图标*/
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /*放自定义图片*/
+   background: url(~assets/menu/select.png) no-repeat;
+   background-position: 18vw center;
+   background-size: 3% 70%;
+}
+option::-ms-expand{ display: none; }
+option{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+}
+/* --背景色字体颜色--*/
+option:hover{
+    color:#fff;
+    background-color:#1E90FF;
+}
+
+/*********************************4.复选框********************/
+input[type="checkbox"]{
+	/*position: absolute;*/
+	/*visibility: hidden;*/
+	display: none;
+}
+input[type="checkbox"]+label{
+	/*margin-left: 2vw;*/
+}
+input[type="checkbox"]+label:before {
+    /*position:absolute;*/
+    display: inline-block;
+  	content: "";
+    width: 0.6vw;
+    height: 0.6vw;
+    border: 1px solid #61A5FF;
+    border-radius: 50%;
+    margin-right: 1vw;
+} 
+input[type="checkbox"]:checked+label:before {
+	background: #61A5FF;
+}
+
+/************************5.单选框***********************************/
+input[type='radio']{
+    display:none; 
+}
+/*.frame label:before{
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*background-color: #61A5FF;*/
+    /*border: 1px solid #61A5FF;*/
+    /*border-radius: 5px;*/
+/*}*/
+input[type='radio'] + label:before{
+	content: "";
+    display: inline-block;
+    width: 0.6vw;
+    height: 0.6vw;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 1px solid #61A5FF;
+}
+
+input[type='radio']:checked+label:before{
+    /*content: "\2022";*/
+   	background-color: #61A5FF;
+    color: #fff;
+    /*font-size: 30px;*/
+    /*text-align: center;*/
+    /*line-height: 19px;*/
+}
+
+/***************6.设置滚动条样式*******************/
+
+

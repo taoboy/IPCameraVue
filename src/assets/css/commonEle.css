@@ -1,0 +1,187 @@
+/*菜单内容组件的外层div*/
+.menuDiv{
+	margin-top:4.8vh;
+	margin-left: 2.7vw;
+}
+/*菜单内容组件的外层div  距离左侧150px,设置定位是为了保存按钮的定位*/
+.menuDiv2{
+	margin-top:4.8vh;
+	margin-left: 10.4vw;
+	text-align: left;
+	position: relative;
+}
+/*视频显示区域*/
+.videoShow{
+	width: 44.4vw;
+	height: 53.5vh;
+	line-height: 53.5vh;
+	/*width: 640px;
+	height: 480px;
+	line-height: 480px;*/
+	border: 1px solid #999999;
+	text-align: center;
+}
+.videoShow img{
+	vertical-align: middle;
+	width: 3vw;
+}
+.videoShow p{
+	font-size: 1vw;
+	margin-top: 25vh;
+	line-height: 4vh;
+}
+/*保存按钮 150*40*/
+.saveBtn{
+	width: 10.4vw;
+	height: 4.4vh;
+	text-align: center;
+	line-height: 4.4vh;
+	font-size: 1.25vw;
+	background: #61A5FF;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+}
+/*恢复默认设置按钮*/
+.recoverBtn{
+	width: 10.4vw;
+	height: 4.4vh;
+	text-align: center;
+	line-height: 4.4vh;
+	font-size: 1.25vw;
+	background: #E6EFFB;
+	color: #61A5FF;
+	border: none;
+	border-radius: 5px;
+}
+/*普通按钮样式,和恢复默认设置样式相同*/
+.commonBtn{
+	width: 10.4vw;
+	height: 4.4vh;
+	text-align: center;
+	line-height: 4.4vh;
+	font-size: 1.25vw;
+	background: #E6EFFB;
+	color: #61A5FF;
+	border: none;
+	border-radius: 5px;
+}
+/*测试按钮80*30*/
+.testBtn{
+	width: 5.5vw;
+	height: 3.3vh;
+	text-align: center;
+	line-height: 3.3vh;
+	font-size: 0.97vw;
+	background: #61A5FF;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+}
+/*测试按钮 80*30*/
+.operateBtn{
+	width: 5.5vw;
+	height: 3.3vh;
+	text-align: center;
+	line-height: 3.3vh;
+	font-size: 0.9vw;
+	background: #61A5FF;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+}
+.operateBtn:disabled{
+	background: #CDCDCD;
+}
+.operateBtn[disabled]{
+	background: #CDCDCD;
+}
+/*删除按钮*/
+.delBtn{
+	width: 5.5vw;
+	height: 3.3vh;
+	text-align: center;
+	line-height: 3.3vh;
+	font-size: 0.9vw;
+	background: #61A5FF;
+	color: #FFFFFF;
+	border-radius: 5px;
+	border: none;
+}
+/*星期的按钮60*30,span标签*/
+.weekBtn{
+	display: inline-block;
+	width: 4.1vw;
+	height: 3.3vh;
+	text-align: center;
+	line-height: 3.3vh;
+	font-size: 0.9vw;
+	background: #E6EFFB;
+	color: #4A4A4A;
+	border: none;
+}
+/*range旁边显示的值样式*/
+.rangeVal{
+	display: inline-block;
+	width: 2.4vw;
+	height: 3.3vh;
+	line-height: 3.3vh;
+	border: 1px solid #999999;
+	border-radius: 5px;
+	text-align: center;
+	margin-left: 1vw;
+}
+/*圆圈显示*/
+.circle{
+	display: inline-block;
+	width: 0.5vw;
+	height: 0.5vw;
+	border-radius: 50%;
+	border: 1px solid #61A5FF;
+}
+.circle_on{
+	display: inline-block;
+	width: 0.5vw;
+	height: 0.5vw;
+	border-radius: 50%;
+	border: 1px solid #61A5FF;
+	background: #61A5FF;
+}
+
+/*确认弹框*/
+.shadow{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(230,239,251,0.5);
+}
+.dialog2{
+	width: 32.1vw;
+	height: 24.7vh;
+	background: #fff;
+	position: absolute;
+	top: 30vh;
+	left: 40vw;
+}
+.dialog2 .title{
+	text-align: center;
+	margin-top: 4.4vh;
+	margin-bottom: 2.2vh;
+	font-weight: bold;
+}
+.dialog2 .tips{
+	height: 7vh;
+	padding: 0 1vw;
+	font-weight: normal;
+	text-align: center;
+	line-height: 3vh;
+}
+.dialog2 .btns .saveBtn{
+	margin-left: 2.7vw;
+	margin-right: 5.7vw;
+}
+.dialog2 .btns button{
+	border-radius: 5px;
+}
