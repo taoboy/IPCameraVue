@@ -32,7 +32,7 @@
 			    </el-date-picker>
 				<!--<input :disabled="useData.TimeCheck.TimeCheckType=='ntp'" type="date" name="" id="" value="" />-->
 			</div>
-			<div class="">
+			<div class="paramSync">
 				<input @change="syncPcTime" v-model="useData.TimeCheck.ManualCheck.SyncPC" :disabled="useData.TimeCheck.TimeCheckType=='ntp'" type="checkbox" name="sync" id="computer" />
 				<label for="computer">与计算机时间同步</label>
 			</div>
@@ -291,6 +291,9 @@ p{
 .param,.paramSec{
 	margin-bottom: 2.2vh;
 }
+.paramSync{
+	margin-left: 2.8vw;
+}
 .param label{
 	display: inline-block;
 	width: 7vw;
@@ -312,5 +315,11 @@ select{
 .timezone select{
 	width: 25.4vw;
 	background-position: 24vw center;
+}
+.testBtn:disabled{
+	background: #CDCDCD;
+}
+.testBtn[disabled]{
+	background: #CDCDCD;
 }
 </style>

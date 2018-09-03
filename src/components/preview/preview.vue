@@ -34,12 +34,10 @@
   				<div class="main">
   					<input id="main" type="radio" name="stream" v-model="streamName" value="main">
   					<label for="main">主码流</label> 
-  					<!--<span></span>-->
   				</div>
   				<div class="sub">
   					<input id="sub" type="radio" name="stream" v-model="streamName" value="sub">
 						<label for="sub">子码流</label>
-						<!--<span></span>-->
   				</div>
   			</div>
   			<!--视频功能-->

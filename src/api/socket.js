@@ -3,15 +3,15 @@ var global_callback = null;
 var serverPort = '';	//webSocket连接端口
 var rtspPort = '';		//视频播放端口
 //var serverPort = '8000';	//webSocket连接端口
-//var rtspPort = '8554';		//视频播放端口
+//var rtspPort = '554';		//视频播放端口
 //initWebSocket();
 
 function getWebIP(){
 	var addr = "";
 	var curAddr = window.location.href.split(":")[1];	
 	var curIP = curAddr.substring(2).split("/")[0];
-	return curIP;
-//	return "10.58.123.222";
+//	return curIP;
+	return "10.58.122.105";
 }
 
 //从指定文件目录中获取端口		根目录/port.json

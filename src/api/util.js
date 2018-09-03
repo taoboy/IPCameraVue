@@ -6,7 +6,7 @@ export default{
 			var curAddr = window.location.href.split(":")[1];	
 			var curIP = curAddr.substring(2).split("/")[0];
 			return curIP;
-//			return "10.58.122.104";
+//			return "10.58.122.105";
 		}
 		
 		//停止播放视频
