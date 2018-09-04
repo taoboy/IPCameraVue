@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
+
 export default {
   name: 'localLog',
   components: {
@@ -121,45 +123,57 @@ export default {
   	},
   	//重启
   	restartFun(){
+  		const loading = this.$loading({
+          lock: true,
+          text: '重启中',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
   		var _this = this;
   		$.ajax({
-			type:"get",
-			url:"http://"+this.sendUrl+"/device.php?action=reboot",
-			async:true,
-			success:function(data){
-				console.log("重启成功："+JSON.stringify(data));
-				if(data == "True"){
-					window.location.href = "http://"+_this.getPageAddr();
-				}else{
-					_this.$emit("errorAlert","重启失败");
+				type:"get",
+				url:"http://"+this.sendUrl+"/device.php?action=reboot",
+				async:true,
+				cache:false,
+				success:function(data){
+					console.log("重启成功："+JSON.stringify(data));
+					if(data == "True"){
+						setTimeout(() => {
+							window.location.href = "http://"+_this.getPageAddr();
+				         	loading.close();
+						},60000)
+					}else{
+						_this.$emit("errorAlert","重启失败");
+					}
+				},
+				error:function(info){
+					loading.close();
+					_this.$emit("errorAlert","重启失败"+JSON.stringify(info));
+					console.log("重启失败："+JSON.stringify(info));
 				}
-			},
-			error:function(info){
-				_this.$emit("errorAlert","重启失败"+JSON.stringify(info));
-				console.log("重启失败："+JSON.stringify(info));
-			}
-		});
+			});
   	},
   	//恢复出厂设置
   	restoreFun(){
   		var _this = this;
   		$.ajax({
-			type:"get",
-			url:"http://"+this.sendUrl+"/device.php?action=restore",
-			async:true,
-			success:function(data){
-				console.log("恢复出厂设置成功："+JSON.stringify(data));
-				if(data == "True"){
-					_this.$emit("successAlert","恢复出厂设置成功,请输入原始IP进行登录");
-				}else{
+				type:"get",
+				url:"http://"+this.sendUrl+"/device.php?action=restore",
+				async:true,
+				cache:false,
+				success:function(data){
+					console.log("恢复出厂设置成功："+JSON.stringify(data));
+					if(data == "True"){
+						_this.$emit("successAlert","恢复出厂设置成功,请输入原始IP进行登录");
+					}else{
+						_this.$emit("errorAlert","很抱歉，恢复出厂设置失败");
+					}
+				},
+				error:function(info){
+					console.log("恢复出厂设置失败："+JSON.stringify(info));
 					_this.$emit("errorAlert","很抱歉，恢复出厂设置失败");
 				}
-			},
-			error:function(info){
-				console.log("恢复出厂设置失败："+JSON.stringify(info));
-				_this.$emit("errorAlert","很抱歉，恢复出厂设置失败");
-			}
-		});
+			});
   	},
   	//选择导入文件
   	getExpFile(event){
@@ -265,6 +279,7 @@ export default {
 			type:"get",
 			url:"http://"+this.sendUrl+"/upgrade.php?action=start&file="+fileName,
 			async:true,
+			cache:false,
 			success:function(data){
 				console.log("开始升级完成："+JSON.stringify(data));
 				if(data == "True"){
@@ -289,6 +304,7 @@ export default {
 			type:"get",
 			url:"http://"+this.sendUrl+"/upgrade.php?action=getpace&"+Math.random(),
 			async:true,
+			cache:false,
 			success:function(data){
 				console.log("success进度："+JSON.stringify(data));
 				_this.gressFlag = true;

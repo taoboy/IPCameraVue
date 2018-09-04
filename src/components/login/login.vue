@@ -86,6 +86,7 @@ export default {
 				type:"get",
 				url:"http://"+this.getPageAddr()+"/device.php?action=getstate",
 				async:true,
+				cache:false,
 				success:function(data){
 					//跳转到升级页面
 					console.log("获取是否升级失败："+JSON.stringify(data));
@@ -130,7 +131,7 @@ export default {
 .loginDiv{
 	width: 100%;
 	height: 100%;
-	background: url(~assets/login/loginBG.png);
+	background: url(~assets/login/loginBG.jpg);
 	background-size: 100% 100%;
 }
 .logo{

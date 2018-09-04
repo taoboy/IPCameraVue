@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
+
 export default {
   name: 'netPortCur',
   components: {
@@ -55,7 +57,16 @@ export default {
   	//点击弹框中的确定
   	clickSure(){
   		this.dialogFlag = false;
-  		this.$router.push({ path: '/login'})
+  		const loading = this.$loading({
+		  lock: true,
+		  text: '重启中',
+		  spinner: 'el-icon-loading',
+		  background: 'rgba(0, 0, 0, 0.7)'
+		});
+		setTimeout(() => {
+			this.$router.push({ path: '/login'});
+			loading.close();
+		},60000)
   	},
   	//点击保存
   	clickSave(){

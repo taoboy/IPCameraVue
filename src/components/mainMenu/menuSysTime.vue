@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
+	
 export default {
   name: 'sysTime',
   components: {
@@ -117,7 +119,8 @@ export default {
 			'（UTC+12:45）查塔姆群岛',
 			'（UTC+13:00）努库阿洛法',
 			'（UTC+14:00）圣诞岛'
-		]
+		],
+		loading: 0		//点击测试的加载框
     }
   },
   computed: {
@@ -190,6 +193,12 @@ export default {
   	},
   	//点击测试
   	clickTest(){
+  		this.loading = this.$loading({
+		  lock: true,
+		  text: '测试中',
+		  spinner: 'el-icon-loading',
+		  background: 'rgba(0, 0, 0, 0.7)'
+		});
   		this.transJsondata(this.useData);
   		if(this.useData.TimeCheck.TimeCheckType == "manual"){
   			this.useData.TimeCheck.ManualCheck.TimeDevice = this.transStandardTime(this.pcTime);
@@ -205,6 +214,7 @@ export default {
   	},
   	//测试-回调
   	testConfigResult(data){
+  		this.loading.close();
   		if(data["RetCode"] == 0){
         	this.$emit("testAlert","测试成功");
         }else{

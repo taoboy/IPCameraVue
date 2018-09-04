@@ -312,7 +312,7 @@ export default {
 		  	"Page" : "RestrictDet",
 		  	"Message" : this.msgData
 		}
-  		console.log("发送数据："+JSON.stringify(this.msgData));
+  		console.log("发送数据："+JSON.stringify(sendObj));
 		this.socketApi.sendSock(sendObj,this.setConfigResult);
   	},
   	//设置参数-回调函数

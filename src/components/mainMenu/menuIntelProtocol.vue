@@ -115,6 +115,7 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 export default {
   name: 'intelProtocol',
   components: {
@@ -122,7 +123,8 @@ export default {
   data () {
     return {
     	msgData: null,		//所有的message数据
-    	useData: this.CONFIGS.intelProto
+    	useData: this.CONFIGS.intelProto,
+    	loading: 0		//点击测试的加载框
     }
   },
   computed: {
@@ -130,6 +132,12 @@ export default {
   methods:{
   	//点击测试
   	clickTest(){
+  		this.loading = this.$loading({
+		  lock: true,
+		  text: '测试中',
+		  spinner: 'el-icon-loading',
+		  background: 'rgba(0, 0, 0, 0.7)'
+		});
   		this.transJsondata(this.useData);
   		this.msgData["DetectTrans-Properties"] = this.useData;
 		var sendObj={
@@ -142,6 +150,7 @@ export default {
   	},
   	//设置参数-回调函数
   	testConfigResult(data){
+  		this.loading.close();
   		if(data["RetCode"] == 0){
         	this.$emit("testAlert","测试成功");
         }else{

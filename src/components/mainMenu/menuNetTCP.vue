@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 export default {
   name: 'netTCP',
   components: {
@@ -49,7 +50,8 @@ export default {
     return {
     	msgData: null,		//所有的message数据
     	useData: this.CONFIGS.netTCP,
-    	oldIP: ''
+    	oldIP: '',
+    	loading: 0			//点击测试的加载框
     }
   },
   methods:{
@@ -79,7 +81,6 @@ export default {
 			}
   		}
 		/***表单验证end****/
-  		
   		this.transJsondata(this.useData);
   		this.msgData["LAN-Properties"] = this.useData;
 		var sendObj={
@@ -87,6 +88,9 @@ export default {
 		  	"Page" : "NetworkLAN",
 		  	"Message" : this.msgData
 		}
+		if(this.oldIP != this.useData.Address){
+  			this.$emit("successAlert","IP地址变更，请输入变更后的IP地址登陆");
+  		}
 		console.log("发送数据："+JSON.stringify(this.msgData));
 		this.socketApi.sendSock(sendObj,this.setConfigResult);
   	},
@@ -100,6 +104,12 @@ export default {
   	},
   	//点击检测
   	clickTest(){
+  		this.loading = this.$loading({
+		  lock: true,
+		  text: '检测中',
+		  spinner: 'el-icon-loading',
+		  background: 'rgba(0, 0, 0, 0.7)'
+		});
   		this.transJsondata(this.useData);
   		this.msgData["LAN-Properties"] = this.useData;
 		var sendObj={
@@ -112,6 +122,7 @@ export default {
   	},
   	//设置参数-回调函数
   	testConfigResult(data){
+  		this.loading.close();
   		if(data["RetCode"] == 0){
         	this.$emit("testAlert","检测成功");
         }else{

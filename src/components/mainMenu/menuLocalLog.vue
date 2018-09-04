@@ -104,7 +104,7 @@ export default {
   		 $("#logTable").table2excel({
             exclude: ".noExl",
             name: "Excel Document Name",
-            filename: "log",
+            filename: "log.xls",
             exclude_img: true,
             exclude_links: true,
             exclude_inputs: true,
@@ -125,7 +125,7 @@ export default {
 		day = day<10? ('0'+day) : day;
 		return year+"-"+mon+"-"+day;
 	  }
-	}
+  }
 }
 </script>
 
